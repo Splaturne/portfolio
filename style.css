@@ -1,19 +1,19 @@
 /* Import Nunito font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
-/* Dark Theme Color Palette */
+/* colours */
 :root {
-    --bg-color: #181818;      /* Neutral Dark Gray Background */
-    --card-bg: #282828;       /* Lighter Dark Card */
-    --text-primary: #ffffff;  /* Pure White Text */
-    --text-secondary: #b3b3b3;/* Light Gray Secondary Text */
-    --accent-color: #ffc107;  /* A vibrant yellow accent */
-    --border-color: #383838;  /* Subtle Dark Border */
-    --navbar-scrolled-bg: rgba(40, 40, 40, 0.6); /* Dark more transparent */
-    --shadow-color: rgba(0, 0, 0, 0.3); /* Slightly darker shadow for contrast */
+    --bg-color: #181818;
+    --card-bg: #282828;  
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-color: #ffc107;
+    --border-color: #383838;
+    --navbar-scrolled-bg: rgba(40, 40, 40, 0.6);
+    --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Custom Scrollbar */
+/* scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -25,13 +25,13 @@
     border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #535353; /* Lighter gray for hover */
+    background: #535353; /* for hover */
 }
 
 html {
     scroll-behavior: smooth;
-    /* Offset for the fixed navbar height */
-    scroll-padding-top: 120px; /* Increased buffer above section titles on scroll */
+    /* offset for the fixed navbar height */
+    scroll-padding-top: 120px; /* increased buffer above section titles on scroll */
 }
 
 body {
@@ -41,35 +41,35 @@ body {
     padding: 0;
 }
 
-/* Navbar styles */
+/* navbar style */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 0.5rem 2.5rem; /* Increased padding for more space */
+    padding: 0.5rem 2.5rem;
     display: flex;
-    justify-content: space-between; /* Pushes logo and links to opposite ends */
+    justify-content: space-between;
     align-items: center;
-    min-height: 60px; /* Ensures enough height for all nav items */
+    min-height: 60px;
     box-sizing: border-box;
-    overflow-x: auto; /* Prevents nav items from being cut off */
+    overflow-x: auto;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
-    /* Default state is solid */
+    /* default state is solid */
     background: var(--card-bg);
     backdrop-filter: blur(0px);
     box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .navbar.scrolled {
-    /* Scrolled state is slightly transparent and blurred */
+    /* scrolled state is slightly transparent and blurred */
     background: var(--navbar-scrolled-bg);
-    backdrop-filter: blur(16px); /* Increased blur for a more "liquid" feel */
+    backdrop-filter: blur(16px);
     box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-/* Logo/Icon styles */
+/* nav logo style */
 .nav-logo {
     font-weight: 700;
     font-size: 1.5rem;
@@ -81,10 +81,10 @@ body {
     cursor: default;
 }
 
-/* Space out nav buttons more and prevent cutoff */
+/* space out nav buttons more and prevent cutoff */
 .nav-links {
     display: flex;
-    gap: 2.5rem; /* Increased gap for more space */
+    gap: 2.5rem;
 }
 
 .navigation {
@@ -96,7 +96,7 @@ body {
         color 0.2s,
         transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
         background 0.2s;
-    white-space: nowrap; /* Prevents text wrapping */
+    white-space: nowrap;
     padding: 0.4em 1.2em;
     border-radius: 8px;
     display: inline-block;
@@ -104,13 +104,13 @@ body {
 
 .navigation:hover,
 .navigation:focus-visible {
-    color: var(--bg-color); /* Dark text for contrast */
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    color: var(--bg-color);
+    background: rgba(255, 255, 255, 0.9);
     transform: scale(1.13);
     outline: none;
 }
 
-/* Responsive: slightly reduce nav gap and padding on small screens */
+/* responsive: slightly reduce nav gap and padding on small screens */
 @media (max-width: 600px) {
     .nav-links {
         gap: 1.2rem;
@@ -121,24 +121,24 @@ body {
     }
 }
 
-/* Main Content Grid Layout */
+/* main content grid */
 .content-grid {
     display: grid;
     gap: 8rem;
     padding: 0 2rem 6rem;
-    max-width: 1200px; /* Original width */
-    margin: 0 auto; /* Centered, top margin is now handled by the intro section */
+    max-width: 1200px;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
-/* Responsive: On medium/small screens, stack the columns */
+/* responsive: On medium/small screens, stack the columns */
 @media (max-width: 1024px) {
     .content-grid {
-        max-width: 900px; /* Use a more conventional width for single column */
+        max-width: 900px; /* use a more conventional width for single column */
     }
 }
 
-/* Card styles for content sections */
+/* card/section style for grid */
 .card {
     background: var(--card-bg);
     border-radius: 16px;
@@ -149,7 +149,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Increase readability of card text */
 .card p, .card li {
     color: var(--text-primary);
     font-size: 1.1rem;
@@ -163,7 +162,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Style for the divider inside the card */
 .card-divider {
     border: none;
     height: 1px;
@@ -171,7 +169,6 @@ body {
     margin: 2rem 0;
 }
 
-/* Gallery Section Styles */
 .card h2 {
     color: var(--text-primary);
     text-align: center;
@@ -198,19 +195,19 @@ body {
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* This class is added by JavaScript when the item is in view */
+/* this class is added by JavaScript when the item is in view */
 .gallery-item.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
-/* This now only targets single images directly inside a gallery item */
+/* this now only targets single images directly inside a gallery item */
 .gallery-item > img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 12px;
-    background-color: var(--border-color); /* Placeholder color */
+    background-color: var(--border-color); /* placeholder color */
     box-shadow: 0 4px 15px var(--shadow-color);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
 }
@@ -220,7 +217,7 @@ body {
     box-shadow: 0 8px 25px var(--shadow-color);
 }
 
-/* Slideshow-specific styles */
+/* slideshow specific styles */
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -257,21 +254,21 @@ body {
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
-    color: #ffffff; /* White icon color */
+    color: #ffffff; /* white icon color */
     border: 2px solid #ffffff;
     cursor: pointer;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* Use flexbox for perfect centering of SVG icons */
+    /* use flexbox for perfect centering of SVG icons */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px; /* Controls the size of the SVG via '1em' */
+    font-size: 24px; /* controls the size of the SVG via '1em' */
     z-index: 10;
     opacity: 0;
     transition: opacity 0.3s ease, background-color 0.3s ease;
-    box-sizing: border-box; /* Ensure padding doesn't affect the button's total size */
+    box-sizing: border-box; /* ensure padding doesn't affect the button's total size */
 }
 
 .slideshow-container:hover .slideshow-btn {
@@ -279,7 +276,7 @@ body {
 }
 
 .slideshow-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* lighten on hover */
 }
 
 .slideshow-btn.prev {
@@ -298,37 +295,35 @@ body {
     font-style: normal;
 }
 
-/* Intro Section Specifics */
 #home {
-    min-height: 90vh; /* Make section slightly less than full viewport height */
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align card to the top */
-    align-items: center; /* Center card horizontally */
-    position: relative; /* For positioning the scroll indicator */
-    padding-top: 18vh; /* Increased top padding for more space */
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-top: 18vh;
     box-sizing: border-box;
-    /* Add horizontal padding for smaller screens */
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-bottom: 4rem; /* Add some space between the intro card and the scroll indicator */
+    padding-bottom: 4rem;
 }
 
 #home .card {
     width: 100%;
-    max-width: 1400px; /* Make the intro card wider than the main content grid */
+    max-width: 1400px; /* makes the intro card wider than the main content grid */
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: 3rem; /* Original position */
+    bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
     color: var(--text-secondary);
     text-align: center;
     opacity: 1;
     transition: opacity 0.4s ease;
-    pointer-events: none; /* It's just an indicator */
+    pointer-events: none; /* just an indicator */
 }
 
 .scroll-indicator.hidden {
@@ -342,11 +337,11 @@ body {
 
 .intro-flex {
     display: flex;
-    align-items: center; /* Vertically center text next to the profile image */
+    align-items: center;
     gap: 2rem;
 }
 
-/* Responsive stacking for the intro card */
+/* responsive: stacking the intro card */
 @media (max-width: 768px) {
     .intro-flex {
         flex-direction: column;
