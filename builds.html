@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico.png">
+        <title>Solimhyr</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="images/favicon.ico.png" alt="Icon">
+                Splaturne / Solimhyr
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="navigation">Home</a>
+                <a href="builds.html" class="navigation">Builds</a>
+                <a href="modeling.html" class="navigation">Modeling</a>
+                <a href="https://www.roblox.com/users/261453350/profile" target="_blank" rel="noopener noreferrer" class="navigation">Profile</a>
+            </div>
+        </nav>
+
+        <main class="content-grid">
+            <section id="work" class="work-gallery">
+                <h2>Builds</h2>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev-arrow" aria-label="Previous projects">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="carousel-nav next-arrow" aria-label="Next projects">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                    
+                <div class="gallery-grid">
+                    <!-- Flattened Gallery Items -->
+                    <div class="gallery-item"><img src="images/cozy isolate porfolio 2.png" alt="cozy isolate 2"></div>
+                    <div class="gallery-item"><img src="images/cozy isolate portfolio 3.png" alt="cozy isolate 3"></div>
+                    <div class="gallery-item"><img src="images/cozy isolate portfolio 4.png" alt="cozy isolate 4"></div>
+                    <div class="gallery-item"><img src="images/cozy isolate portfolio 1.png" alt="cozy isolate 1"></div>
+                    <div class="gallery-item"><img src="images/box home 1.png" alt="box build thing"></div>
+
+                    <div class="gallery-item"><img src="images/Natures Bliss Portfolio thumbnail.png" alt="Nature's Bliss build"></div>
+                    <div class="gallery-item"><img src="images/Skys Expanse 2.png" alt="Sky's Expanse Build"></div>
+                    <div class="gallery-item"><img src="images/Skys Expanse.png" alt="Overgrown Ruins Build"></div>
+                    <div class="gallery-item"><img src="images/overgrown ruins portfolio image.png" alt="Overgrown Ruins Build"></div>
+                    <div class="gallery-item"><img src="images/halycon thumbnail.png" alt="Halycon Build"></div>
+                    <div class="gallery-item"><img src="images/halycon icon.png" alt="Halycon Build 2"></div>
+                    <div class="gallery-item"><img src="images/oddly sized.png" alt="Oddly Sized Build"></div>
+                    
+                    <div class="gallery-item"><img src="images/obby world 2.png" alt="obby world map"></div>
+                    <div class="gallery-item"><img src="images/obby world 4.png" alt="obby world map 2"></div>
+                    <div class="gallery-item"><img src="images/Obby World 3.png" alt="obby world map 3"></div>
+                    <div class="gallery-item"><img src="images/obby world boat.png" alt="obby world map 4"></div>
+                    <div class="gallery-item"><img src="images/obby world buildings.png" alt="obby world map 5"></div>
+                    
+                    <div class="gallery-item"><img src="images/sublimity 1.png" alt="realistic"></div>
+                    <div class="gallery-item"><img src="images/cabin exterior.png" alt="cabin"></div>
+                    <div class="gallery-item"><img src="images/happy birthday 1.png" alt="birthday 1"></div>
+                    <div class="gallery-item"><img src="images/happy birthday 2.png" alt="birthday 2"></div>
+                    <div class="gallery-item"><img src="images/banana tree better.png" alt="plants 1"></div>
+                    <div class="gallery-item"><img src="images/plants better.png" alt="plants 2"></div>
+                    <div class="gallery-item"><img src="images/plants better 2.png" alt="plants 3"></div>
+                </div>
+
+                <div class="carousel-dots"></div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            galleryItems.forEach(item => observer.observe(item));
+
+            // Main Carousel Logic
+            const track = document.querySelector('.gallery-grid');
+            let items = document.querySelectorAll('.gallery-item');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            
+            const originalCount = items.length;
+            const cloneCount = 5; // Number of items visible
+            
+            // Clone items for infinite loop
+            // Clone last 'cloneCount' items to prepend
+            for (let i = 0; i < cloneCount; i++) {
+                const clone = items[originalCount - 1 - i].cloneNode(true);
+                clone.classList.add('is-visible');
+                track.insertBefore(clone, track.firstChild);
+            }
+            
+            // Clone first 'cloneCount' items to append
+            for (let i = 0; i < cloneCount; i++) {
+                const clone = items[i].cloneNode(true);
+                clone.classList.add('is-visible');
+                track.appendChild(clone);
+            }
+            
+            // Re-query items to include clones
+            items = document.querySelectorAll('.gallery-item');
+            
+            let currentSlide = cloneCount; // Start at the first real item
+            let isTransitioning = false;
+            
+            // Create dots (only for original items)
+            for (let i = 0; i < originalCount; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    if (isTransitioning) return;
+                    currentSlide = i + cloneCount;
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            }
+
+            const dots = document.querySelectorAll('.dot');
+
+            function updateCarousel(enableTransition = true) {
+                const itemWidth = items[0].getBoundingClientRect().width;
+                const gap = parseFloat(window.getComputedStyle(track).gap) || 32;
+                const moveAmount = (itemWidth + gap) * currentSlide;
+                
+                if (enableTransition) {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    isTransitioning = true;
+                } else {
+                    track.style.transition = 'none';
+                    isTransitioning = false;
+                }
+                
+                track.style.transform = `translateX(-${moveAmount}px)`;
+                
+                // Update dots based on real index
+                let realIndex = (currentSlide - cloneCount) % originalCount;
+                if (realIndex < 0) realIndex += originalCount;
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === realIndex);
+                });
+            }
+
+            // Handle transition end for looping
+            track.addEventListener('transitionend', (e) => {
+                if (e.target !== track) return;
+                isTransitioning = false;
+                if (currentSlide >= originalCount + cloneCount) {
+                    currentSlide -= originalCount;
+                    updateCarousel(false);
+                } else if (currentSlide < cloneCount) {
+                    currentSlide += originalCount;
+                    updateCarousel(false);
+                }
+            });
+
+            prevArrow.addEventListener('click', () => {
+                if (isTransitioning) return;
+                currentSlide--;
+                updateCarousel(true);
+            });
+
+            nextArrow.addEventListener('click', () => {
+                if (isTransitioning) return;
+                currentSlide++;
+                updateCarousel(true);
+            });
+            
+            // Initial positioning
+            setTimeout(() => updateCarousel(false), 50);
+            
+            window.addEventListener('resize', () => updateCarousel(false));
+        </script>
+    </body>
+</html>
