@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="images/wedge head.png">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico.png">
         <title>Solimhyr</title>
     </head>
 
     <body>
         <nav class="navbar">
             <div class="nav-logo">
-                <img src="images/wedge head.png" alt="Icon">
+                <img src="images/favicon.ico.png" alt="Icon">
                 Splaturne / Solimhyr
             </div>
             <div class="nav-links">
@@ -91,7 +91,7 @@
             const dotsContainer = document.querySelector('.carousel-dots');
             
             const originalCount = items.length;
-            const cloneCount = 2; // Number of items visible
+            const cloneCount = 5; // Number of items visible
             
             // Clone items for infinite loop
             // Clone last 'cloneCount' items to prepend
@@ -130,8 +130,8 @@
             const dots = document.querySelectorAll('.dot');
 
             function updateCarousel(enableTransition = true) {
-                const itemWidth = items[0].offsetWidth;
-                const gap = 32; // 2rem = 32px
+                const itemWidth = items[0].getBoundingClientRect().width;
+                const gap = parseFloat(window.getComputedStyle(track).gap) || 32;
                 const moveAmount = (itemWidth + gap) * currentSlide;
                 
                 if (enableTransition) {
@@ -154,7 +154,8 @@
             }
 
             // Handle transition end for looping
-            track.addEventListener('transitionend', () => {
+            track.addEventListener('transitionend', (e) => {
+                if (e.target !== track) return;
                 isTransitioning = false;
                 if (currentSlide >= originalCount + cloneCount) {
                     currentSlide -= originalCount;
@@ -183,7 +184,4 @@
             window.addEventListener('resize', () => updateCarousel(false));
         </script>
     </body>
-
 </html>
-
-
